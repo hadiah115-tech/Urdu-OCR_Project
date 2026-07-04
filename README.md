@@ -14,11 +14,16 @@
 ## Folder Structure
 
 ```text
+## Folder Structure
+
+```text
 Urdu-OCR_Project/
 │── data/
 │   ├── images/
-│   └── labels.csv
-│── Week1.ipynb
+│   ├── processed/
+│   └── lable.csv
+│── SI26_Week1_Hadia.ipynb
+│── SI26_Week2_Hadia.ipynb
 │── README.md
 ```
 
