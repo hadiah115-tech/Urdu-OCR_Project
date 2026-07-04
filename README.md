@@ -8,20 +8,23 @@
 - ✅ GitHub Repository Created
 - ✅ Hugging Face Account Created
 - ✅ Project Environment Configured
-- ⏳ Collecting 100+ Urdu Images
-- ⏳ Creating labels.csv
+- ✅ Collecting 100+ Urdu Images
+- ✅ Creating labels.csv
+Week 2
+✅ Image Preprocessing
+✅ Applied Grayscale Conversion
+✅ Noise Removal
+✅ Thresholding/Binarization
+✅ Tested OCR using Tesseract
+✅ Documented OCR Results
 
 ## Folder Structure
 
-```text
-## Folder Structure
-
-```text
 Urdu-OCR_Project/
 │── data/
 │   ├── images/
 │   ├── processed/
-│   └── lable.csv
+│   └── lables.csv
 │── SI26_Week1_Hadia.ipynb
 │── SI26_Week2_Hadia.ipynb
 │── README.md
@@ -29,11 +32,14 @@ Urdu-OCR_Project/
 
 ## Tools Used
 
-- Google Colab
-- GitHub
-- Hugging Face
+Google Colab
+GitHub
+Hugging Face
+OpenCV
+Tesseract OCR
+Panda
 
-Updated README for Week 2
+ README for Week 2
 ## Why We Need a Better Model
 Tesseract fails on Urdu because Urdu Nastaliq script contains connected characters, complex ligatures, and different handwriting styles. The preprocessing improves image quality, but Tesseract still struggles to recognize handwritten Urdu accurately. This demonstrates the need for a dedicated machine learning OCR model trained specifically on Urdu handwriting.
 
