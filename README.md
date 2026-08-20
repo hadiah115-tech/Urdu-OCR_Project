@@ -2,6 +2,16 @@
 
 ## Code Saviours Summer Internship 2026
 
+This project is an Urdu Optical Character Recognition (OCR) system that extracts Urdu text from images using a fine-tuned Microsoft TrOCR model.
+
+---
+
+# Why This Project Matters
+
+Urdu handwritten text is difficult for traditional OCR systems because of connected characters, complex ligatures, the Nastaliq writing style, and variations in handwriting.
+
+This project explores the use of transformer-based OCR to recognize Urdu text from images and demonstrates the challenges of applying pretrained OCR models to Urdu script.
+
 ---
 
 # Week 1 Progress
@@ -48,27 +58,16 @@
 
 ## Week 4 Challenges Faced
 
-During model training and evaluation, several issues were encountered:
+During model training, the main challenges were:
 
-* ⚠️ **Model Compatibility Issues**
+* ⚠️ **Model Compatibility**
+  * TrOCR Base Printed was originally designed for English printed text, making Urdu Nastaliq adaptation difficult.
 
-  * Microsoft TrOCR Base Printed model was originally designed for English printed text, which caused difficulties while adapting it for Urdu Nastaliq script.
+* ⚠️ **Limited Dataset**
+  * The dataset contained around 200 Urdu images, which limited model performance.
 
-* ⚠️ **Limited Dataset Size**
-
-  * The available Urdu dataset contained around 200 images, which was not sufficient for achieving high accuracy.
-
-* ⚠️ **Training Limitations**
-
-  * Due to limited computational resources and time constraints, the model was trained for only 3 epochs.
-
-* ⚠️ **Low Accuracy Results**
-
-  * The final accuracy remained low because Urdu handwriting contains connected characters, complex ligatures, and different writing styles.
-
-* ⚠️ **Model Loading and Saving Issues**
-
-  * While loading the saved model, path configuration and Hugging Face processor loading issues were encountered and resolved by correcting model directory structure.
+* ⚠️ **Limited Training**
+  * Due to computational and time constraints, the model was trained for only 3 epochs.
 
 ---
 
@@ -82,55 +81,115 @@ During model training and evaluation, several issues were encountered:
 * ✅ Tested deployment environment
 * ✅ Configured project files for online hosting
 
-## Deployment Challenges Faced
+## Week 5 Deployment Challenges
 
-During deployment, the following issues were encountered:
+* ⚠️ **Hugging Face Space Limitations**
+  * The available free Space configuration had limitations for Gradio and Docker deployment.
 
-* ⚠️ **Hugging Face Space SDK Limitations**
-
-  * Gradio and Docker deployment options were not available under the current free Space configuration.
-
-* ⚠️ **Static Space Environment Issue**
-
-  * Static Space uses a browser-based Python environment (Pyodide), which does not support heavy machine learning libraries such as:
-
-    * PyTorch
-    * Transformers
-    * Hugging Face Hub dependencies
-
-* ⚠️ **Package Installation Error**
-
-  * While installing dependencies, the following error occurred:
-
-```
-Can't find a pure Python 3 wheel for:
-huggingface-hub<1.0,>=0.33.5
-```
-
-* This happened because required machine learning packages cannot run inside the Static Space environment.
+* ⚠️ **Static Environment Limitations**
+  * The Static Space environment could not support heavy machine learning libraries such as PyTorch and Transformers.
 
 * ⚠️ **Deployment Adjustment**
+  * Alternative deployment approaches were explored to make the OCR project accessible online.
 
-  * The deployment approach was reviewed and alternative hosting methods were explored to make the OCR model accessible online.
+---
+
+# Week 8 Progress
+
+## Project Polishing and Final Preparation
+
+During Week 8, the project was prepared for final submission and presentation.
+
+* ✅ Cleaned and organized the GitHub repository
+* ✅ Reviewed project files and folder structure
+* ✅ Updated project documentation
+* ✅ Added project description and purpose
+* ✅ Added model results and training information
+* ✅ Added local setup instructions
+* ⏳ Loom demonstration video
+* ⏳ Final project submission
+
+---
+
+# What It Does
+
+The Urdu OCR project takes an Urdu text image as input and attempts to extract the written Urdu text using a fine-tuned Microsoft TrOCR model.
+
+The image is processed and passed through the OCR model, which generates predicted text as output.
+
+---
+
+# How It Works
+
+The project first collects and preprocesses Urdu images by applying techniques such as grayscale conversion, noise removal, and thresholding.
+
+The processed images are then used to fine-tune Microsoft TrOCR on the Urdu dataset.
+
+After training, the model can be used for OCR inference by providing an Urdu image and generating predicted text.
+
+---
+
+# Live Demo
+
+The Urdu OCR project was prepared for deployment on Hugging Face Spaces.
+
+**Hugging Face Space:** (https://huggingface.co/spaces/hadia-tech/Urdu-OCR)
+
+---
+
+# Results
+
+## Training Loss
+
+| Epoch | Average Training Loss |
+| ----- | --------------------: |
+| 1     |                3.9934 |
+| 2     |                2.5148 |
+| 3     |                2.4845 |
+
+## Model Accuracy
+
+**0.0%**
+
+The accuracy remained low due to the limited dataset size, limited training epochs, and the difficulty of adapting a pretrained English OCR model to Urdu Nastaliq handwriting.
+
+---
+
+# How to Run Locally
+
+Install the required libraries:
+
+`pip install torch transformers pandas opencv-python pillow datasets accelerate`
+
+Open the relevant Google Colab notebook and run the cells in order.
+
+The project requires the dataset and model files to be available at the paths specified in the notebook.
 
 ---
 
 # Folder Structure
 
-```text
 Urdu-OCR_Project/
-│── data/
+
+├── data/
+
 │   ├── images/
+
 │   ├── processed/
+
 │   └── labels.csv
-│
-│── SI26_Week1_Hadia.ipynb
-│── SI26_Week2_Hadia.ipynb
-│── SI26_Week3_Hadia.ipynb
-│── SI26_Week4_Hadia.ipynb
-│── SI26_Week5_Hadia.ipynb
-│── README.md
-```
+
+├── SI26_Week1_Hadia.ipynb
+
+├── SI26_Week2_Hadia.ipynb
+
+├── SI26_Week3_Hadia.ipynb
+
+├── SI26_Week4_Hadia.ipynb
+
+├── SI26_Week5_Hadia.ipynb
+
+└── README.md
 
 ---
 
@@ -160,13 +219,11 @@ Urdu-OCR_Project/
 
 ## Image 80.png
 
-**Output**
+**Output:**
 
-```text
-/ ۷۷ لا ول نل ا
-```
+`/ ۷۷ لا ول نل ا`
 
-**Observation**
+**Observation:**
 
 The OCR output is inaccurate and several Urdu words were not recognized correctly.
 
@@ -174,13 +231,11 @@ The OCR output is inaccurate and several Urdu words were not recognized correctl
 
 ## Image 63.png
 
-**Output**
+**Output:**
 
-```text
-ملماول وا سا کا ان بد
-```
+`ملماول وا سا کا ان بد`
 
-**Observation**
+**Observation:**
 
 Some words were partially recognized, but many characters and words are incorrect.
 
@@ -188,13 +243,11 @@ Some words were partially recognized, but many characters and words are incorrec
 
 ## Image 42.png
 
-**Output**
+**Output:**
 
-```text
-و
-```
+`و`
 
-**Observation**
+**Observation:**
 
 Most of the text was missed. Only one character was detected.
 
@@ -202,13 +255,11 @@ Most of the text was missed. Only one character was detected.
 
 ## Image 27.png
 
-**Output**
+**Output:**
 
-```text
-ا کی ار روا
-```
+`ا کی ار روا`
 
-**Observation**
+**Observation:**
 
 The recognized text is incomplete and contains recognition errors.
 
@@ -216,13 +267,11 @@ The recognized text is incomplete and contains recognition errors.
 
 ## Image 59.png
 
-**Output**
+**Output:**
 
-```text
-نہ اک او ٹیو
-```
+`نہ اک او ٹیو`
 
-**Observation**
+**Observation:**
 
 The OCR result does not accurately match the original handwritten Urdu text.
 
@@ -264,6 +313,7 @@ This project successfully completed the complete OCR pipeline:
 * Model evaluation
 * Model saving
 * Deployment exploration
+* Project documentation and final preparation
 
 The training loss decreased from **3.9934** to **2.4845**, indicating that the model learned from the available training data.
 
@@ -275,6 +325,11 @@ However, the final model accuracy remained **0.0%** because:
 * Urdu Nastaliq script is significantly more complex than English printed text.
 
 Future improvements include collecting a much larger handwritten Urdu dataset, training for more epochs, and using a model specifically designed for Urdu OCR.
+
+---
+# Built By
+
+**Hadia Hameed** | **Code Saviours SI-26** | **2026**
 
 ---
 
