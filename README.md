@@ -106,8 +106,7 @@ During Week 8, the project was prepared for final submission and presentation.
 * ✅ Added project description and purpose
 * ✅ Added model results and training information
 * ✅ Added local setup instructions
-* ⏳ Loom demonstration video
-* ⏳ Final project submission
+* ✅ Final project submission
 
 ---
 
